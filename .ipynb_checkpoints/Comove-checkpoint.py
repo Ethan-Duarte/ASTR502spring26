@@ -130,8 +130,8 @@ def findfriends(targname,radial_velocity,velocity_limit=5.0,search_radius=25.0,r
         print(Pgaia['phot_g_mean_mag'].mask)
 
     minpos = Pgaia['phot_g_mean_mag'].tolist().index(min( Pgaia['phot_g_mean_mag'][~Pgaia['phot_g_mean_mag'].mask] ))
-    print(Pgaia['ra'][minpos], Pgaia['dec'][minpos],(1000.0/Pgaia['parallax'][minpos]), radvel, Pgaia['pmra'][minpos], Pgaia['pmdec'][minpos])
-
+    #print(Pgaia['ra'][minpos], Pgaia['dec'][minpos],(1000.0/Pgaia['parallax'][minpos]), radvel, Pgaia['pmra'][minpos], Pgaia['pmdec'][minpos])
+    #radvel = 19.09913444519040
     Pcoord = SkyCoord( ra=Pgaia['ra'][minpos]*u.deg , dec=Pgaia['dec'][minpos]*u.deg , \
                       distance=(1000.0/Pgaia['parallax'][minpos])*u.parsec , frame='icrs' , \
                       radial_velocity=radvel , \
