@@ -105,14 +105,14 @@ def findfriends(targname,radial_velocity,velocity_limit=5.0,search_radius=25.0,r
     else:  ##use the target name to get simbad ra and dec.
         print('Asking Simbad for RA and DEC')
         result_table = Simbad.query_object(targname)
-        usera,usedec = result_table['RA'][0],result_table['DEC'][0]
+        usera,usedec = result_table['ra'][0],result_table['dec'][0]
     
     if verbose == True:
         print('Target name: ',targname)
         print('Coordinates: ' + str(usera) +' '+str(usedec))
         print()
 
-    c = SkyCoord( ra=usera , dec=usedec , unit=(u.hourangle, u.deg) , frame='icrs')
+    c = SkyCoord( ra=usera , dec=usedec , unit=(u.deg, u.deg) , frame='icrs')
     if verbose == True: print(c)
 
     # Find precise coordinates and distance from Gaia, define search radius and parallax cutoff
@@ -130,7 +130,8 @@ def findfriends(targname,radial_velocity,velocity_limit=5.0,search_radius=25.0,r
         print(Pgaia['phot_g_mean_mag'].mask)
 
     minpos = Pgaia['phot_g_mean_mag'].tolist().index(min( Pgaia['phot_g_mean_mag'][~Pgaia['phot_g_mean_mag'].mask] ))
-
+    #print(Pgaia['ra'][minpos], Pgaia['dec'][minpos],(1000.0/Pgaia['parallax'][minpos]), radvel, Pgaia['pmra'][minpos], Pgaia['pmdec'][minpos])
+    #radvel = 19.09913444519040
     Pcoord = SkyCoord( ra=Pgaia['ra'][minpos]*u.deg , dec=Pgaia['dec'][minpos]*u.deg , \
                       distance=(1000.0/Pgaia['parallax'][minpos])*u.parsec , frame='icrs' , \
                       radial_velocity=radvel , \
