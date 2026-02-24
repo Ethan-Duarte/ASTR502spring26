@@ -13,36 +13,37 @@ import multiprocessing as mp
 # SETTINGS YOU WILL EDIT
 # -------------------------
 CSV_PATH = r"Targets.csv"
-START_INDEX = 0
-END_INDEX   = 50
 
-vlim = 5.0
-srad = 40.0
+START_INDEX = 21              # Inclusive
+END_INDEX   = 50              # Exclusive
 
-SHOWPLOTS = False
-VERBOSE = False
+vlim = 5.0                    # km / s
+srad = 40.0                   # pc
 
-ATTEMPT_TIMEOUT_S = 300
+SHOWPLOTS = False             # show plots in output
+VERBOSE = False               # lot of print statements :(
 
-ENABLE_DISTANCE_CAP = True
-ENABLE_ANGLE_CAP = True
-THETA_MAX_DEG = 10.0
+ATTEMPT_TIMEOUT_S = 300       # timeout timer for last attempt
+
+ENABLE_DISTANCE_CAP = True    # caps srad if target is too close. Prevents all sky survey
+ENABLE_ANGLE_CAP = True       # caps the maximum portion of the sky to be scanned
+THETA_MAX_DEG = 10.0          # maximum degrees of sky to scan
 
 ALL_RUNS_DIR = Path("ALL_RUNS")
 ALL_CSVS_DIR = Path("ALL_CSVS")
 
 LOG_PATH = Path("run_log.csv")
-SLEEP_BETWEEN_TARGETS_S = 0.5
+SLEEP_BETWEEN_TARGETS_S = 0.5 # How long to wait between targets in seconds
 
 DEDUPE_BY_GAIA_ID = True
-MAX_ATTEMPTS = 4
-BASE_BACKOFF_S = 10
+MAX_ATTEMPTS = 4              # How many attempts before skipping to next target
+BASE_BACKOFF_S = 10           # How many seconds to wait between 1st and 2nd attempt. Doubles each attempt.
 
 
 # -------------------------
 # Helpers
 # -------------------------
-def safe_name(s: str) -> str:
+def safe_name(s: str) -> str:                          # Just makes sure filenames are windows safe
     bad = '<>:"/\\|?*'
     s = "" if s is None else str(s)
     for ch in bad:
@@ -50,7 +51,7 @@ def safe_name(s: str) -> str:
     return s.strip().replace(" ", "_")
 
 
-def to_float(x):
+def to_float(x):                                       # Converts value to float. Only used when inputing RV to findfriends. Has exceptions
     try:
         if x is None:
             return None
@@ -61,7 +62,7 @@ def to_float(x):
         return None
 
 
-def parse_gaia_source_id(raw):
+def parse_gaia_source_id(raw):                         # Checks that Gaia ID is not empty, and is not shortened with scienctific notation.
     if raw is None:
         return None
     s = str(raw).strip()
@@ -81,6 +82,7 @@ def parse_gaia_source_id(raw):
         return None
 
 
+# VVV Estimates the distance to the target from it's parallax. Works with distance cap. VVV        
 def gaia_distance_pc_from_source_id(source_id_int: int):
     if source_id_int is None:
         return None
@@ -101,7 +103,7 @@ def gaia_distance_pc_from_source_id(source_id_int: int):
     except Exception:
         return None
 
-
+### VVV Copies CSVs from comove output into ALL_CSVS VVV
 def collect_csvs(run_dir: Path, dest_base: Path, host_label: str):
     """
     Comove writes ONE csv per target. Copy it to ALL_CSVS/ as host_label.csv
@@ -119,7 +121,7 @@ def collect_csvs(run_dir: Path, dest_base: Path, host_label: str):
     dst = dest_base / f"{host_label}.csv"
     shutil.copy2(src, dst)
 
-
+# VVV Moves the output of comove into ALL_RUNS VVV
 def move_run_dir(run_dir: Path, all_runs_dir: Path, host_label: str):
     """
     Move run_dir into ALL_RUNS/ and rename to <hostname>_friends.
@@ -135,12 +137,12 @@ def move_run_dir(run_dir: Path, all_runs_dir: Path, host_label: str):
     shutil.move(str(run_dir), str(dest))
     return dest
 
-
+# VVV Renames comove output folder to "hostname_friends" VVV
 def expected_outdir_from_targname(targname: str):
     # Matches Comove: './' + targname.replace(" ", "") + '_friends/'
     return Path("./" + str(targname).replace(" ", "") + "_friends/")
 
-
+# VVV Iitializes findfriends. Has exceptions if there's an error while initializing imports between attempts
 def _attempt_findfriends(result_queue, targname, radvel, vlim, srad_eff, rd, verbose, showplots):
     try:
         import Comove
@@ -169,7 +171,7 @@ def _attempt_findfriends(result_queue, targname, radvel, vlim, srad_eff, rd, ver
         except Exception:
             pass
 
-
+# VVV Actually runs findfriends. Ton of exceptions for missing values, distance cap, retry attempts. I'll add a more verbose explaination of this function at another time. VVV
 def run():
     df = pd.read_csv(
         CSV_PATH,
