@@ -53,3 +53,235 @@ index,hostname,gaia_id,rv,ok,runtime_s,output_dir,error
 7,WASP-44,2424406513428936832,-3.095204592,0,16.92,,UnboundLocalError("cannot access local variable 'ccc' where it is not associated with a value")
 8,Gliese_12,2768048564768256512,51.04111099,0,16.29,,UnboundLocalError("cannot access local variable 'ccc' where it is not associated with a value")
 9,WASP-32,2546413408888429696,18.27012634,0,5.97,,HTTPError("Error 404:\nJob 'f3798828-112c-11f1-91f6-bc97e148b76b-O' not found.")
+10,WASP-158,2424621502311961344,24.67984581,0,15.79,,UnboundLocalError("cannot access local variable 'ccc' where it is not associated with a value")
+1,HIP_65_A,4923860051276772608,21.18428993,1,0.00,None,
+1,HIP_65_A,4923860051276772608,21.18428993,0,4.48,,HTTPError('Error 500:\nnull')
+2,WASP-136,2441013811932929280,11.21512794,0,10.82,,HTTPError("Error 404:\nJob '190a4f76-112e-11f1-91f6-bc97e148b76b-O' not found.")
+3,KELT-1,2881784280929695360,-14.20667267,1,22.43,ALL_RUNS\GaiaDR32881784280929695360_friends,
+4,HATS-34,4904523077718046720,19.81319046,0,13.59,,HTTPError('Error 500:\nnull')
+5,WASP-96,4990044668377961984,-1.097559452,1,23.47,ALL_RUNS\GaiaDR34990044668377961984_friends,
+6,TOI-198,2333676738050041728,19.7009964,0,13.94,,UnboundLocalError("cannot access local variable 'ccc' where it is not associated with a value")
+7,WASP-44,2424406513428936832,-3.095204592,0,1.65,,HTTPError('500')
+8,Gliese_12,2768048564768256512,51.04111099,0,6.82,,HTTPError('500')
+9,WASP-32,2546413408888429696,18.27012634,1,16.07,ALL_RUNS\GaiaDR32546413408888429696_friends,
+10,WASP-158,2424621502311961344,24.67984581,0,18.19,,UnboundLocalError("cannot access local variable 'ccc' where it is not associated with a value")
+1,WASP-136,2441013811932929000,11.21512794,0,4.62,,HTTPError('Error 500:\nnull')
+2,KELT-1,2881784280929696000,-14.20667267,0,14.19,,HTTPError("Error 404:\nJob '079ec530-1130-11f1-91f6-bc97e148b76b-O' not found.")
+3,HATS-34,4904523077718047000,19.81319046,0,0.97,,HTTPError('500')
+4,WASP-96,4990044668377961000,-1.097559452,0,2.69,,HTTPError('500')
+0,HIP_65_A,4923860051276772000,21.18428993,1,92.73,ALL_RUNS\GaiaDR34923860051276772000_friends,
+1,WASP-136,2441013811932929000,11.21512794,1,19.97,ALL_RUNS\GaiaDR32441013811932929000_friends,
+2,KELT-1,2881784280929696000,-14.20667267,0,7.30,,HTTPError("Error 404:\nJob '7f1584c5-1130-11f1-91f6-bc97e148b76b-O' not found.")
+3,HATS-34,4904523077718047000,19.81319046,0,6.34,,HTTPError('Error 500:\nnull')
+4,WASP-96,4990044668377961000,-1.097559452,0,4.93,,HTTPError("Error 404:\nJob '8c7103de-1130-11f1-91f6-bc97e148b76b-O' not found.")
+5,TOI-198,2333676738050042000,19.7009964,0,3.59,,HTTPError("Error 404:\nJob '928edf75-1130-11f1-91f6-bc97e148b76b-O' not found.")
+6,WASP-44,2424406513428936700,-3.095204592,0,16.88,,UnboundLocalError("cannot access local variable 'ccc' where it is not associated with a value")
+0,HIP_65_A,4923860051276772608,21.18428993,1,106.81,ALL_RUNS\GaiaDR34923860051276772608_friends,
+1,WASP-136,2441013811932929280,11.21512794,1,25.01,ALL_RUNS\GaiaDR32441013811932929280_friends,
+2,KELT-1,2881784280929695360,-14.20667267,0,8.03,,HTTPError("Error 404:\nJob '903c01a7-1131-11f1-91f6-bc97e148b76b-O' not found.")
+3,HATS-34,4904523077718046720,19.81319046,1,22.88,ALL_RUNS\GaiaDR34904523077718046720_friends,
+4,WASP-96,4990044668377961984,-1.097559452,0,1.09,,HTTPError('500')
+0,HIP_65_A,4923860051276772608,21.18428993,1,68.43,ALL_RUNS\GaiaDR34923860051276772608_friends,
+1,WASP-136,2441013811932929280,11.21512794,0,6.82,,HTTPError('Error 500:\nnull')
+2,KELT-1,2881784280929695360,-14.20667267,0,6.91,,HTTPError('500')
+3,HATS-34,4904523077718046720,19.81319046,1,30.46,ALL_RUNS\GaiaDR34904523077718046720_friends,
+0,HIP_65_A,4923860051276772608,21.18428993,1,71.50,ALL_RUNS\GaiaDR34923860051276772608_friends,
+1,WASP-136,2441013811932929280,11.21512794,0,1.91,,HTTPError('500')
+2,KELT-1,2881784280929695360,-14.20667267,0,4.47,,HTTPError('Error 500:\nnull')
+3,HATS-34,4904523077718046720,19.81319046,0,6.28,,HTTPError("Error 404:\nJob 'a589307e-1133-11f1-91f6-bc97e148b76b-O' not found.")
+4,WASP-96,4990044668377961984,-1.097559452,1,25.27,ALL_RUNS\GaiaDR34990044668377961984_friends,
+5,TOI-198,2333676738050041728,19.7009964,0,5.05,,HTTPError('500')
+6,WASP-44,2424406513428936832,-3.095204592,0,6.44,,HTTPError('500')
+7,Gliese_12,2768048564768256512,51.04111099,0,4.87,,HTTPError("Error 404:\nJob 'cd1cb9a6-1133-11f1-91f6-bc97e148b76b-O' not found.")
+8,WASP-32,2546413408888429696,18.27012634,1,32.21,ALL_RUNS\GaiaDR32546413408888429696_friends,
+9,WASP-158,2424621502311961344,24.67984581,1,23.11,ALL_RUNS\GaiaDR32424621502311961344_friends,
+10,HD_1397,4707634458245031552,30.64109993,1,95.98,ALL_RUNS\GaiaDR34707634458245031552_friends,
+11,TOI-6016,428360006379022592,-48.52323151,0,4.00,,HTTPError("Error 404:\nJob '38ecd62a-1134-11f1-91f6-bc97e148b76b-O' not found.")
+12,WASP-26,2416782701664155008,9.0658741,0,3.66,,HTTPError("Error 404:\nJob '3e81d2b3-1134-11f1-91f6-bc97e148b76b-O' not found.")
+13,TOI-260,2428162410789155328,-10.71837807,0,2.36,,HTTPError('500')
+14,Qatar-4,385697172809355392,-29.14311028,1,38.18,ALL_RUNS\GaiaDR3385697172809355392_friends,
+15,WASP-20,2359978293137038720,1.255960107,1,25.59,ALL_RUNS\GaiaDR32359978293137038720_friends,
+16,WASP-1,2862548428079638912,-13.90166569,0,10.13,,HTTPError('Error 500:\nnull')
+1,WASP-136,2441013811932929280,11.21512794,0,5.03,,HTTPError("Error 404:\nJob 'bc9d512f-1134-11f1-91f6-bc97e148b76b-O' not found.")
+1,WASP-136,2441013811932929280,11.21512794,0,8.19,,HTTPError('Error 500:\nnull')
+1,WASP-136,2441013811932929280,11.21512794,0,12.74,,UnboundLocalError("cannot access local variable 'ccc' where it is not associated with a value")
+1,WASP-136,2441013811932929280,11.21512794,1,14.13,ALL_RUNS\GaiaDR32441013811932929280_friends,
+1,WASP-136,2441013811932929280,11.21512794,1,16.84,ALL_RUNS\GaiaDR32441013811932929280_friends,
+0,HIP_65_A,4923860051276772608,21.18428993,0,5.54,,HTTPError('Error 500:\nnull')
+1,WASP-136,2441013811932929280,11.21512794,1,22.01,ALL_RUNS\GaiaDR32441013811932929280_friends,
+2,KELT-1,2881784280929695360,-14.20667267,0,8.02,,HTTPError('500')
+3,HATS-34,4904523077718046720,19.81319046,1,18.89,ALL_RUNS\GaiaDR34904523077718046720_friends,
+4,WASP-96,4990044668377961984,-1.097559452,1,19.67,ALL_RUNS\GaiaDR34990044668377961984_friends,
+5,TOI-198,2333676738050041728,19.7009964,0,16.86,,UnboundLocalError("cannot access local variable 'ccc' where it is not associated with a value")
+6,WASP-44,2424406513428936832,-3.095204592,0,15.98,,UnboundLocalError("cannot access local variable 'ccc' where it is not associated with a value")
+7,Gliese_12,2768048564768256512,51.04111099,0,16.90,,UnboundLocalError("cannot access local variable 'ccc' where it is not associated with a value")
+8,WASP-32,2546413408888429696,18.27012634,1,16.15,ALL_RUNS\GaiaDR32546413408888429696_friends,
+9,WASP-158,2424621502311961344,24.67984581,0,12.05,,UnboundLocalError("cannot access local variable 'ccc' where it is not associated with a value")
+10,HD_1397,4707634458245031552,30.64109993,1,54.24,ALL_RUNS\GaiaDR34707634458245031552_friends,
+0,HIP_65_A,4923860051276772608,21.18428993,0,2.30,,HTTPError('500')
+1,WASP-136,2441013811932929280,11.21512794,0,2.79,,HTTPError('500')
+2,KELT-1,2881784280929695360,-14.20667267,1,37.64,ALL_RUNS\GaiaDR32881784280929695360_friends,
+0,HIP_65_A,4923860051276772608,21.18428993,0,4.83,,HTTPError('Error 500:\nnull')
+1,WASP-136,2441013811932929280,11.21512794,1,19.21,ALL_RUNS\GaiaDR32441013811932929280_friends,
+2,KELT-1,2881784280929695360,-14.20667267,1,24.28,ALL_RUNS\GaiaDR32881784280929695360_friends,
+0,HIP_65_A,4923860051276772608,21.18428993,1,79.17,ALL_RUNS\GaiaDR34923860051276772608_friends,
+1,WASP-136,2441013811932929280,11.21512794,1,0.00,None,
+2,KELT-1,2881784280929695360,-14.20667267,1,28.18,ALL_RUNS\GaiaDR32881784280929695360_friends,
+3,HATS-34,4904523077718046720,19.81319046,1,0.00,None,
+0,HIP_65_A,4923860051276772608,21.18428993,1,79.06,ALL_RUNS\GaiaDR34923860051276772608_friends,
+1,WASP-136,2441013811932929280,11.21512794,1,19.77,ALL_RUNS\GaiaDR32441013811932929280_friends,
+2,KELT-1,2881784280929695360,-14.20667267,1,19.10,ALL_RUNS\GaiaDR32881784280929695360_friends,
+3,HATS-34,4904523077718046720,19.81319046,1,18.89,ALL_RUNS\GaiaDR34904523077718046720_friends,
+4,WASP-96,4990044668377961984,-1.097559452,1,19.30,ALL_RUNS\GaiaDR34990044668377961984_friends,
+5,TOI-198,2333676738050041728,19.7009964,1,1775.73,ALL_RUNS\GaiaDR32333676738050041728_friends,
+6,WASP-44,2424406513428936832,-3.095204592,0,15.68,,UnboundLocalError("cannot access local variable 'ccc' where it is not associated with a value")
+0,HIP_65_A,4923860051276772608,21.18428993,1,68.22,ALL_RUNS\GaiaDR34923860051276772608_friends,
+1,WASP-136,2441013811932929280,11.21512794,1,30.02,ALL_RUNS\GaiaDR32441013811932929280_friends,
+2,KELT-1,2881784280929695360,-14.20667267,1,28.84,ALL_RUNS\GaiaDR32881784280929695360_friends,
+3,HATS-34,4904523077718046720,19.81319046,1,31.32,ALL_RUNS\GaiaDR34904523077718046720_friends,
+4,WASP-96,4990044668377961984,-1.097559452,1,24.15,ALL_RUNS\GaiaDR34990044668377961984_friends,
+5,TOI-198,2333676738050041728,19.7009964,0,20.23,,UnboundLocalError("cannot access local variable 'ccc' where it is not associated with a value")
+6,WASP-44,2424406513428936832,-3.095204592,0,19.37,,UnboundLocalError("cannot access local variable 'ccc' where it is not associated with a value")
+7,Gliese_12,2768048564768256512,51.04111099,0,300.02,,TimeoutError('Attempt timed out after 300s')
+8,WASP-32,2546413408888429696,18.27012634,0,0.08,,RuntimeError('No result returned from child process')
+9,WASP-158,2424621502311961344,24.67984581,0,0.08,,RuntimeError('No result returned from child process')
+10,HD_1397,4707634458245031552,30.64109993,0,0.09,,RuntimeError('No result returned from child process')
+11,TOI-6016,428360006379022592,-48.52323151,0,0.08,,RuntimeError('No result returned from child process')
+12,WASP-26,2416782701664155008,9.0658741,0,0.08,,RuntimeError('No result returned from child process')
+13,TOI-260,2428162410789155328,-10.71837807,0,0.08,,RuntimeError('No result returned from child process')
+14,Qatar-4,385697172809355392,-29.14311028,0,0.09,,RuntimeError('No result returned from child process')
+15,WASP-20,2359978293137038720,1.255960107,0,0.09,,RuntimeError('No result returned from child process')
+16,WASP-1,2862548428079638912,-13.90166569,0,0.08,,RuntimeError('No result returned from child process')
+17,WASP-45,2308834780352875904,4.713166237,0,0.09,,RuntimeError('No result returned from child process')
+18,HATS-30,4906145613282734208,0.2136174589,0,0.08,,RuntimeError('No result returned from child process')
+19,TOI-5322,2780169409154216448,-2.268136501,0,0.08,,RuntimeError('No result returned from child process')
+20,HATS-49,4919770108539385472,7.625776291,0,0.08,,RuntimeError('No result returned from child process')
+21,HATS-46,4919771654727611008,-32.45669174,0,0.08,,RuntimeError('No result returned from child process')
+22,Qatar-5,382111248777193216,-9.334557533,0,0.08,,RuntimeError('No result returned from child process')
+23,TOI-178,2318295979126499200,57.56665039,0,0.09,,RuntimeError('No result returned from child process')
+29,HD_2685,4684205720883329920,2.741959333,0,0.08,,RuntimeError('No result returned from child process')
+30,WASP-190,4994240000000000000,0.2908396125,0,0.08,,RuntimeError('No result returned from child process')
+31,TOI-6029,430269136520563200,-24.8664875,0,0.08,,RuntimeError('No result returned from child process')
+32,HD_3167,2554032474712538880,19.39881706,0,0.08,,RuntimeError('No result returned from child process')
+34,TOI-2406,2528453161326406016,,0,0,,Missing/invalid RV
+35,WASP-93,415703635408772480,-0.7054376602,0,0.08,,RuntimeError('No result returned from child process')
+36,HAT-P-19,365426679516816512,-19.60743141,0,0.08,,RuntimeError('No result returned from child process')
+37,HAT-P-16,381592313648387200,-16.66669464,0,0.08,,RuntimeError('No result returned from child process')
+38,K2-149,2557342829345854208,6.841959,0,0.08,,RuntimeError('No result returned from child process')
+39,TOI-1470,427224073427887360,3.536416769,0,0.08,,RuntimeError('No result returned from child process')
+41,TOI-244,5001098681543159040,14.51407814,0,0.08,,RuntimeError('No result returned from child process')
+42,LHS_1140,2371032916186181760,-13.74182224,0,0.08,,RuntimeError('No result returned from child process')
+44,K2-206,2549096011101118080,26.62606239,0,0.08,,RuntimeError('No result returned from child process')
+45,K2-217,2556248536102683008,-6.776754379,0,0.09,,RuntimeError('No result returned from child process')
+46,K2-216,2556231154370582400,-26.53006744,0,0.08,,RuntimeError('No result returned from child process')
+47,K2-207,2549087623029238400,-3.072942972,0,0.08,,RuntimeError('No result returned from child process')
+48,HD_5278,4617759514501503616,-30.23285294,0,0.09,,RuntimeError('No result returned from child process')
+49,K2-385,2552976943549668352,7.963480949,0,0.08,,RuntimeError('No result returned from child process')
+7,Gliese_12,2768048564768256512,51.04111099,0,2.23,,ImportError/ComoveImportFail: IndentationError('unexpected indent', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 317, 8, '        ccc = None\n', 317, -1))
+8,WASP-32,2546413408888429696,18.27012634,0,2.21,,ImportError/ComoveImportFail: IndentationError('unexpected indent', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 317, 8, '        ccc = None\n', 317, -1))
+7,Gliese_12,2768048564768256512,51.04111099,0,19.65,,ValueError('max() arg is an empty sequence')
+8,WASP-32,2546413408888429696,18.27012634,1,31.82,ALL_RUNS\GaiaDR32546413408888429696_friends,
+9,WASP-158,2424621502311961344,24.67984581,1,24.47,ALL_RUNS\GaiaDR32424621502311961344_friends,
+10,HD_1397,4707634458245031552,30.64109993,1,61.12,ALL_RUNS\GaiaDR34707634458245031552_friends,
+11,TOI-6016,428360006379022592,-48.52323151,1,40.75,ALL_RUNS\GaiaDR3428360006379022592_friends,
+12,WASP-26,2416782701664155008,9.0658741,1,21.32,ALL_RUNS\GaiaDR32416782701664155008_friends,
+7,Gliese_12,2768048564768256512,51.04111099,0,19.32,,ValueError('max() arg is an empty sequence')
+7,Gliese_12,2768048564768256512,51.04111099,0,27.07,,ValueError('max() arg is an empty sequence')
+8,WASP-32,2546413408888429696,18.27012634,1,21.97,ALL_RUNS\GaiaDR32546413408888429696_friends,
+9,WASP-158,2424621502311961344,24.67984581,1,20.80,ALL_RUNS\GaiaDR32424621502311961344_friends,
+10,HD_1397,4707634458245031552,30.64109993,1,47.56,ALL_RUNS\GaiaDR34707634458245031552_friends,
+11,TOI-6016,428360006379022592,-48.52323151,1,37.91,ALL_RUNS\GaiaDR3428360006379022592_friends,
+12,WASP-26,2416782701664155008,9.0658741,1,23.55,ALL_RUNS\GaiaDR32416782701664155008_friends,
+13,TOI-260,2428162410789155328,-10.71837807,0,28.25,,ValueError('max() arg is an empty sequence')
+14,Qatar-4,385697172809355392,-29.14311028,1,31.26,ALL_RUNS\GaiaDR3385697172809355392_friends,
+15,WASP-20,2359978293137038720,1.255960107,1,20.76,ALL_RUNS\GaiaDR32359978293137038720_friends,
+7,Gliese_12,2768048564768256512,51.04111099,0,2.18,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 130)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 130, 95, '        "CIRCLE(\'ICRS\'," + str(c.ra.value) + "," + str(c.dec.value) + "," + str(6.0/3600.0) + ")', 130, 95))
+8,WASP-32,2546413408888429696,18.27012634,0,2.16,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 130)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 130, 95, '        "CIRCLE(\'ICRS\'," + str(c.ra.value) + "," + str(c.dec.value) + "," + str(6.0/3600.0) + ")', 130, 95))
+9,WASP-158,2424621502311961344,24.67984581,0,2.37,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 130)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 130, 95, '        "CIRCLE(\'ICRS\'," + str(c.ra.value) + "," + str(c.dec.value) + "," + str(6.0/3600.0) + ")', 130, 95))
+10,HD_1397,4707634458245031552,30.64109993,0,2.36,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 130)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 130, 95, '        "CIRCLE(\'ICRS\'," + str(c.ra.value) + "," + str(c.dec.value) + "," + str(6.0/3600.0) + ")', 130, 95))
+11,TOI-6016,428360006379022592,-48.52323151,0,2.35,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 130)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 130, 95, '        "CIRCLE(\'ICRS\'," + str(c.ra.value) + "," + str(c.dec.value) + "," + str(6.0/3600.0) + ")', 130, 95))
+12,WASP-26,2416782701664155008,9.0658741,0,4.15,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 130)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 130, 95, '        "CIRCLE(\'ICRS\'," + str(c.ra.value) + "," + str(c.dec.value) + "," + str(6.0/3600.0) + ")', 130, 95))
+13,TOI-260,2428162410789155328,-10.71837807,0,2.35,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 130)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 130, 95, '        "CIRCLE(\'ICRS\'," + str(c.ra.value) + "," + str(c.dec.value) + "," + str(6.0/3600.0) + ")', 130, 95))
+14,Qatar-4,385697172809355392,-29.14311028,0,2.27,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 130)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 130, 95, '        "CIRCLE(\'ICRS\'," + str(c.ra.value) + "," + str(c.dec.value) + "," + str(6.0/3600.0) + ")', 130, 95))
+15,WASP-20,2359978293137038720,1.255960107,0,2.17,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 130)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 130, 95, '        "CIRCLE(\'ICRS\'," + str(c.ra.value) + "," + str(c.dec.value) + "," + str(6.0/3600.0) + ")', 130, 95))
+16,WASP-1,2862548428079638912,-13.90166569,0,2.16,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 130)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 130, 95, '        "CIRCLE(\'ICRS\'," + str(c.ra.value) + "," + str(c.dec.value) + "," + str(6.0/3600.0) + ")', 130, 95))
+17,WASP-45,2308834780352875904,4.713166237,0,2.15,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 130)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 130, 95, '        "CIRCLE(\'ICRS\'," + str(c.ra.value) + "," + str(c.dec.value) + "," + str(6.0/3600.0) + ")', 130, 95))
+18,HATS-30,4906145613282734208,0.2136174589,0,2.16,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 130)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 130, 95, '        "CIRCLE(\'ICRS\'," + str(c.ra.value) + "," + str(c.dec.value) + "," + str(6.0/3600.0) + ")', 130, 95))
+19,TOI-5322,2780169409154216448,-2.268136501,0,2.47,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 130)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 130, 95, '        "CIRCLE(\'ICRS\'," + str(c.ra.value) + "," + str(c.dec.value) + "," + str(6.0/3600.0) + ")', 130, 95))
+20,HATS-49,4919770108539385472,7.625776291,0,2.29,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 130)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 130, 95, '        "CIRCLE(\'ICRS\'," + str(c.ra.value) + "," + str(c.dec.value) + "," + str(6.0/3600.0) + ")', 130, 95))
+21,HATS-46,4919771654727611008,-32.45669174,0,2.21,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 130)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 130, 95, '        "CIRCLE(\'ICRS\'," + str(c.ra.value) + "," + str(c.dec.value) + "," + str(6.0/3600.0) + ")', 130, 95))
+22,Qatar-5,382111248777193216,-9.334557533,0,2.25,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 130)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 130, 95, '        "CIRCLE(\'ICRS\'," + str(c.ra.value) + "," + str(c.dec.value) + "," + str(6.0/3600.0) + ")', 130, 95))
+23,TOI-178,2318295979126499200,57.56665039,0,2.29,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 130)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 130, 95, '        "CIRCLE(\'ICRS\'," + str(c.ra.value) + "," + str(c.dec.value) + "," + str(6.0/3600.0) + ")', 130, 95))
+29,HD_2685,4684205720883329920,2.741959333,0,2.16,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 130)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 130, 95, '        "CIRCLE(\'ICRS\'," + str(c.ra.value) + "," + str(c.dec.value) + "," + str(6.0/3600.0) + ")', 130, 95))
+30,WASP-190,4994240000000000000,0.2908396125,0,2.31,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 130)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 130, 95, '        "CIRCLE(\'ICRS\'," + str(c.ra.value) + "," + str(c.dec.value) + "," + str(6.0/3600.0) + ")', 130, 95))
+31,TOI-6029,430269136520563200,-24.8664875,0,2.27,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 130)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 130, 95, '        "CIRCLE(\'ICRS\'," + str(c.ra.value) + "," + str(c.dec.value) + "," + str(6.0/3600.0) + ")', 130, 95))
+32,HD_3167,2554032474712538880,19.39881706,0,2.30,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 130)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 130, 95, '        "CIRCLE(\'ICRS\'," + str(c.ra.value) + "," + str(c.dec.value) + "," + str(6.0/3600.0) + ")', 130, 95))
+34,TOI-2406,2528453161326406016,,0,0,,Missing/invalid RV
+35,WASP-93,415703635408772480,-0.7054376602,0,2.40,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 130)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 130, 95, '        "CIRCLE(\'ICRS\'," + str(c.ra.value) + "," + str(c.dec.value) + "," + str(6.0/3600.0) + ")', 130, 95))
+36,HAT-P-19,365426679516816512,-19.60743141,0,2.24,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 130)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 130, 95, '        "CIRCLE(\'ICRS\'," + str(c.ra.value) + "," + str(c.dec.value) + "," + str(6.0/3600.0) + ")', 130, 95))
+37,HAT-P-16,381592313648387200,-16.66669464,0,2.16,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 130)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 130, 95, '        "CIRCLE(\'ICRS\'," + str(c.ra.value) + "," + str(c.dec.value) + "," + str(6.0/3600.0) + ")', 130, 95))
+38,K2-149,2557342829345854208,6.841959,0,2.42,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 130)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 130, 95, '        "CIRCLE(\'ICRS\'," + str(c.ra.value) + "," + str(c.dec.value) + "," + str(6.0/3600.0) + ")', 130, 95))
+39,TOI-1470,427224073427887360,3.536416769,0,2.35,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 190)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 190, 117, '            "CIRCLE(\'ICRS\'," + str(Pcoord.ra.value) + "," + str(Pcoord.dec.value) + "," + str(searchraddeg.value) + ")', 190, 117))
+7,Gliese_12,2768048564768256512,51.04111099,0,2.13,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 190)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 190, 117, '            "CIRCLE(\'ICRS\'," + str(Pcoord.ra.value) + "," + str(Pcoord.dec.value) + "," + str(searchraddeg.value) + ")', 190, 117))
+8,WASP-32,2546413408888429696,18.27012634,0,2.15,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 190)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 190, 117, '            "CIRCLE(\'ICRS\'," + str(Pcoord.ra.value) + "," + str(Pcoord.dec.value) + "," + str(searchraddeg.value) + ")', 190, 117))
+9,WASP-158,2424621502311961344,24.67984581,0,2.38,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 190)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 190, 117, '            "CIRCLE(\'ICRS\'," + str(Pcoord.ra.value) + "," + str(Pcoord.dec.value) + "," + str(searchraddeg.value) + ")', 190, 117))
+10,HD_1397,4707634458245031552,30.64109993,0,2.22,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 190)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 190, 117, '            "CIRCLE(\'ICRS\'," + str(Pcoord.ra.value) + "," + str(Pcoord.dec.value) + "," + str(searchraddeg.value) + ")', 190, 117))
+11,TOI-6016,428360006379022592,-48.52323151,0,2.18,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 190)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 190, 117, '            "CIRCLE(\'ICRS\'," + str(Pcoord.ra.value) + "," + str(Pcoord.dec.value) + "," + str(searchraddeg.value) + ")', 190, 117))
+12,WASP-26,2416782701664155008,9.0658741,0,2.41,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 190)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 190, 117, '            "CIRCLE(\'ICRS\'," + str(Pcoord.ra.value) + "," + str(Pcoord.dec.value) + "," + str(searchraddeg.value) + ")', 190, 117))
+7,Gliese_12,2768048564768256512,51.04111099,0,2.14,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 190)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 190, 117, '            "CIRCLE(\'ICRS\'," + str(Pcoord.ra.value) + "," + str(Pcoord.dec.value) + "," + str(searchraddeg.value) + ")', 190, 117))
+8,WASP-32,2546413408888429696,18.27012634,0,2.30,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 190)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 190, 117, '            "CIRCLE(\'ICRS\'," + str(Pcoord.ra.value) + "," + str(Pcoord.dec.value) + "," + str(searchraddeg.value) + ")', 190, 117))
+9,WASP-158,2424621502311961344,24.67984581,0,2.22,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 190)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 190, 117, '            "CIRCLE(\'ICRS\'," + str(Pcoord.ra.value) + "," + str(Pcoord.dec.value) + "," + str(searchraddeg.value) + ")', 190, 117))
+10,HD_1397,4707634458245031552,30.64109993,0,2.27,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 190)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 190, 117, '            "CIRCLE(\'ICRS\'," + str(Pcoord.ra.value) + "," + str(Pcoord.dec.value) + "," + str(searchraddeg.value) + ")', 190, 117))
+11,TOI-6016,428360006379022592,-48.52323151,0,2.23,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 190)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 190, 117, '            "CIRCLE(\'ICRS\'," + str(Pcoord.ra.value) + "," + str(Pcoord.dec.value) + "," + str(searchraddeg.value) + ")', 190, 117))
+12,WASP-26,2416782701664155008,9.0658741,0,2.20,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 190)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 190, 117, '            "CIRCLE(\'ICRS\'," + str(Pcoord.ra.value) + "," + str(Pcoord.dec.value) + "," + str(searchraddeg.value) + ")', 190, 117))
+13,TOI-260,2428162410789155328,-10.71837807,0,2.23,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 190)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 190, 117, '            "CIRCLE(\'ICRS\'," + str(Pcoord.ra.value) + "," + str(Pcoord.dec.value) + "," + str(searchraddeg.value) + ")', 190, 117))
+14,Qatar-4,385697172809355392,-29.14311028,0,2.27,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 190)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 190, 117, '            "CIRCLE(\'ICRS\'," + str(Pcoord.ra.value) + "," + str(Pcoord.dec.value) + "," + str(searchraddeg.value) + ")', 190, 117))
+15,WASP-20,2359978293137038720,1.255960107,0,4.15,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 190)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 190, 117, '            "CIRCLE(\'ICRS\'," + str(Pcoord.ra.value) + "," + str(Pcoord.dec.value) + "," + str(searchraddeg.value) + ")', 190, 117))
+16,WASP-1,2862548428079638912,-13.90166569,0,2.24,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 190)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 190, 117, '            "CIRCLE(\'ICRS\'," + str(Pcoord.ra.value) + "," + str(Pcoord.dec.value) + "," + str(searchraddeg.value) + ")', 190, 117))
+17,WASP-45,2308834780352875904,4.713166237,0,2.20,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 190)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 190, 117, '            "CIRCLE(\'ICRS\'," + str(Pcoord.ra.value) + "," + str(Pcoord.dec.value) + "," + str(searchraddeg.value) + ")', 190, 117))
+18,HATS-30,4906145613282734208,0.2136174589,0,2.19,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 190)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 190, 117, '            "CIRCLE(\'ICRS\'," + str(Pcoord.ra.value) + "," + str(Pcoord.dec.value) + "," + str(searchraddeg.value) + ")', 190, 117))
+19,TOI-5322,2780169409154216448,-2.268136501,0,2.22,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 190)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 190, 117, '            "CIRCLE(\'ICRS\'," + str(Pcoord.ra.value) + "," + str(Pcoord.dec.value) + "," + str(searchraddeg.value) + ")', 190, 117))
+20,HATS-49,4919770108539385472,7.625776291,0,2.20,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 190)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 190, 117, '            "CIRCLE(\'ICRS\'," + str(Pcoord.ra.value) + "," + str(Pcoord.dec.value) + "," + str(searchraddeg.value) + ")', 190, 117))
+21,HATS-46,4919771654727611008,-32.45669174,0,2.17,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 190)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 190, 117, '            "CIRCLE(\'ICRS\'," + str(Pcoord.ra.value) + "," + str(Pcoord.dec.value) + "," + str(searchraddeg.value) + ")', 190, 117))
+22,Qatar-5,382111248777193216,-9.334557533,0,2.16,,ImportError/ComoveImportFail: SyntaxError('unterminated string literal (detected at line 190)', ('C:\\Users\\Eef\\MY SHIT\\Documents\\ASTR502spring26\\Comove.py', 190, 117, '            "CIRCLE(\'ICRS\'," + str(Pcoord.ra.value) + "," + str(Pcoord.dec.value) + "," + str(searchraddeg.value) + ")', 190, 117))
+7,Gliese_12,2768048564768256512,51.04111099,1,23.68,ALL_RUNS\GaiaDR32768048564768256512_friends,
+8,WASP-32,2546413408888429696,18.27012634,1,22.94,ALL_RUNS\GaiaDR32546413408888429696_friends,
+9,WASP-158,2424621502311961344,24.67984581,1,25.32,ALL_RUNS\GaiaDR32424621502311961344_friends,
+10,HD_1397,4707634458245031552,30.64109993,1,54.73,ALL_RUNS\GaiaDR34707634458245031552_friends,
+11,TOI-6016,428360006379022592,-48.52323151,1,31.55,ALL_RUNS\GaiaDR3428360006379022592_friends,
+12,WASP-26,2416782701664155008,9.0658741,1,29.06,ALL_RUNS\GaiaDR32416782701664155008_friends,
+13,TOI-260,2428162410789155328,-10.71837807,1,43.93,ALL_RUNS\GaiaDR32428162410789155328_friends,
+14,Qatar-4,385697172809355392,-29.14311028,0,11.13,,HTTPError('Error 500:\nnull')
+15,WASP-20,2359978293137038720,1.255960107,1,26.33,ALL_RUNS\GaiaDR32359978293137038720_friends,
+16,WASP-1,2862548428079638912,-13.90166569,0,2.65,,RuntimeError('Child exited before reporting (likely import-time crash)')
+17,WASP-45,2308834780352875904,4.713166237,0,2.20,,RuntimeError('Child exited before reporting (likely import-time crash)')
+18,HATS-30,4906145613282734208,0.2136174589,0,2.25,,RuntimeError('Child exited before reporting (likely import-time crash)')
+19,TOI-5322,2780169409154216448,-2.268136501,0,4.38,,RuntimeError('Child exited before reporting (likely import-time crash)')
+15,WASP-20,2359978293137038720,1.255960107,1,25.80,C:\Users\Eef\MY SHIT\Documents\ASTR502spring26\ALL_RUNS\WASP-20_friends,
+16,WASP-1,2862548428079638912,-13.90166569,1,29.31,C:\Users\Eef\MY SHIT\Documents\ASTR502spring26\ALL_RUNS\WASP-1_friends,
+15,WASP-20,2359978293137038720,1.255960107,1,24.39,,C:\Users\Eef\MY SHIT\Documents\ASTR502spring26\ALL_RUNS\WASP-20_friends,""
+15,WASP-20,2359978293137038720,1.255960107,1,25.73,C:\Users\Eef\MY SHIT\Documents\ASTR502spring26\ALL_RUNS\WASP-20_friends,,
+16,WASP-1,2862548428079638912,-13.90166569,1,28.72,C:\Users\Eef\MY SHIT\Documents\ASTR502spring26\ALL_RUNS\WASP-1_friends,,
+15,WASP-20,2359978293137038720,1.255960107,1,26.34,C:\Users\Eef\MY SHIT\Documents\ASTR502spring26\ALL_RUNS\WASP-20_friends,,
+15,WASP-20,2359978293137038720,1.255960107,1,5.12,C:\Users\Eef\MY SHIT\Documents\ASTR502spring26\ALL_RUNS\WASP-20_friends,0,
+16,WASP-1,2862548428079638912,-13.90166569,1,5.56,C:\Users\Eef\MY SHIT\Documents\ASTR502spring26\ALL_RUNS\WASP-1_friends,0,
+15,WASP-20,2359978293137038720,1.255960107,1,4.84,C:\Users\Eef\MY SHIT\Documents\ASTR502spring26\ALL_RUNS\WASP-20_friends,0,
+7,Gliese_12,2768048564768256512,51.04111099,1,32.85,ALL_RUNS\GaiaDR32768048564768256512_friends,
+8,WASP-32,2546413408888429696,18.27012634,1,24.28,ALL_RUNS\GaiaDR32546413408888429696_friends,
+9,WASP-158,2424621502311961344,24.67984581,1,21.37,ALL_RUNS\GaiaDR32424621502311961344_friends,
+7,Gliese_12,2768048564768256512,51.04111099,1,26.60,ALL_RUNS\Gliese_12_friends,
+8,WASP-32,2546413408888429696,18.27012634,1,24.87,ALL_RUNS\WASP-32_friends,
+9,WASP-158,2424621502311961344,24.67984581,1,22.67,ALL_RUNS\WASP-158_friends,
+0,HIP_65_A,4923860051276772608,21.18428993,1,122.09,ALL_RUNS\HIP_65_A_friends,
+1,WASP-136,2441013811932929280,11.21512794,1,53.95,ALL_RUNS\WASP-136_friends,
+2,KELT-1,2881784280929695360,-14.20667267,1,115.44,ALL_RUNS\KELT-1_friends,
+3,HATS-34,4904523077718046720,19.81319046,1,52.15,ALL_RUNS\HATS-34_friends,
+4,WASP-96,4990044668377961984,-1.097559452,1,53.93,ALL_RUNS\WASP-96_friends,
+5,TOI-198,2333676738050041728,19.7009964,1,24.93,ALL_RUNS\TOI-198_friends,
+6,WASP-44,2424406513428936832,-3.095204592,1,47.06,ALL_RUNS\WASP-44_friends,
+7,Gliese_12,2768048564768256512,51.04111099,1,22.32,ALL_RUNS\Gliese_12_friends,
+8,WASP-32,2546413408888429696,18.27012634,1,50.77,ALL_RUNS\WASP-32_friends,
+9,WASP-158,2424621502311961344,24.67984581,1,39.24,ALL_RUNS\WASP-158_friends,
+10,HD_1397,4707634458245031552,30.64109993,1,65.18,ALL_RUNS\HD_1397_friends,
+11,TOI-6016,428360006379022592,-48.52323151,1,127.06,ALL_RUNS\TOI-6016_friends,
+12,WASP-26,2416782701664155008,9.0658741,0,8.98,,HTTPError('500')
