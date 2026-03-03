@@ -8,14 +8,15 @@ from pathlib import Path
 from decimal import Decimal, InvalidOperation
 from astroquery.gaia import Gaia
 import multiprocessing as mp
+from datetime import datetime
 
 # -------------------------
 # SETTINGS YOU WILL EDIT
 # -------------------------
 CSV_PATH = r"Targets.csv"
 
-START_INDEX = 21              # Inclusive
-END_INDEX   = 50              # Exclusive
+START_INDEX = 51              # Inclusive
+END_INDEX   = 60              # Exclusive
 
 vlim = 5.0                    # km / s
 srad = 40.0                   # pc
@@ -195,7 +196,10 @@ def run():
     ALL_CSVS_DIR.mkdir(parents=True, exist_ok=True)
 
     if not LOG_PATH.exists():
-        LOG_PATH.write_text("index,hostname,gaia_id,rv,ok,runtime_s,output_dir,error\n", encoding="utf-8")
+        LOG_PATH.write_text(
+            "index,hostname,gaia_id,rv,query_timestamp,attempt_completed_on,srad_used_pc,ok,runtime_s,output_dir,error\n",
+            encoding="utf-8"
+        )
 
     print("Logging to:", LOG_PATH.resolve())
 
@@ -213,6 +217,9 @@ def run():
     for idx in range(START_INDEX, end):
         row = df.iloc[idx]
 
+        query_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        attempt_completed_on = 0
+
         host_label = safe_name(row["hostname"])
 
         gaia_id_int = parse_gaia_source_id(row["gaia_dr3_id"])
@@ -220,7 +227,9 @@ def run():
             msg = f"Bad/invalid Gaia DR3 source_id: {repr(row['gaia_dr3_id'])}"
             print(f"\n[{idx}] {host_label} | SKIP: {msg}")
             with LOG_PATH.open("a", encoding="utf-8") as f:
-                f.write(f"{idx},{host_label},,{row['st_rv']},0,0,,{msg}\n")
+                f.write(
+                    f'{idx},{host_label},,{row["st_rv"]},"{query_timestamp}",{attempt_completed_on},,0,0,,"{msg}"\n'
+                )
             continue
 
         gaia_id = str(gaia_id_int)
@@ -250,7 +259,9 @@ def run():
             msg = "Missing/invalid RV"
             print(f"  SKIP: {msg}")
             with LOG_PATH.open("a", encoding="utf-8") as f:
-                f.write(f"{idx},{host_label},{gaia_id},{row['st_rv']},0,0,,{msg}\n")
+                f.write(
+                    f'{idx},{host_label},{gaia_id},{row["st_rv"]},"{query_timestamp}",{attempt_completed_on},,0,0,,"{msg}"\n'
+                )
             continue
 
         if ra is None or dec is None:
@@ -275,6 +286,8 @@ def run():
         runtime = 0.0
 
         for attempt in range(1, MAX_ATTEMPTS + 1):
+            attempt_completed_on = attempt
+
             local_outdir = expected_outdir_from_targname(targname)
             if local_outdir.exists():
                 shutil.rmtree(local_outdir)
@@ -350,7 +363,9 @@ def run():
             outdir = str(moved_to)
 
         with LOG_PATH.open("a", encoding="utf-8") as f:
-            f.write(f"{idx},{host_label},{gaia_id},{row['st_rv']},{ok},{runtime:.2f},{outdir},{err}\n")
+            f.write(
+                f'{idx},{host_label},{gaia_id},{row["st_rv"]},"{query_timestamp}",{attempt_completed_on},{srad_eff:.6f},{ok},{runtime:.2f},{outdir},"{err}"\n'
+            )
 
         time.sleep(SLEEP_BETWEEN_TARGETS_S)
 
