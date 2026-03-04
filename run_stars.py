@@ -15,8 +15,8 @@ from datetime import datetime
 # -------------------------
 CSV_PATH = r"Targets.csv"
 
-START_INDEX = 51              # Inclusive
-END_INDEX   = 60              # Exclusive
+START_INDEX = 67              # Inclusive
+END_INDEX   = 100              # Exclusive
 
 vlim = 5.0                    # km / s
 srad = 40.0                   # pc
@@ -24,7 +24,7 @@ srad = 40.0                   # pc
 SHOWPLOTS = False             # show plots in output
 VERBOSE = False               # lot of print statements :(
 
-ATTEMPT_TIMEOUT_S = 300       # timeout timer for last attempt
+ATTEMPT_TIMEOUT_S = 1200       # timeout timer for last attempt
 
 ENABLE_DISTANCE_CAP = True    # caps srad if target is too close. Prevents all sky survey
 ENABLE_ANGLE_CAP = True       # caps the maximum portion of the sky to be scanned
@@ -37,7 +37,7 @@ LOG_PATH = Path("run_log.csv")
 SLEEP_BETWEEN_TARGETS_S = 0.5 # How long to wait between targets in seconds
 
 DEDUPE_BY_GAIA_ID = True
-MAX_ATTEMPTS = 4              # How many attempts before skipping to next target
+MAX_ATTEMPTS = 1              # How many attempts before skipping to next target
 BASE_BACKOFF_S = 10           # How many seconds to wait between 1st and 2nd attempt. Doubles each attempt.
 
 
