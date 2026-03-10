@@ -1,0 +1,1 @@
+GaiaDR3 RA DEC Gmag Bp-Rp Voff(km/s) Sep(deg) 3D(pc) Vr(pred) Vr(obs) Vrerr Plx(mas) SpT FnuvJ W1-W3 RUWE XCrate RVsrc PMRApred PMDecpred PMRA PMRAerr PMDec PMDecerr
