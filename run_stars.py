@@ -28,11 +28,7 @@ import pandas as pd
 from astroquery.gaia import Gaia
 
 
-# -------------------------
-# Helpers
-# -------------------------
 def safe_name(s: str) -> str:
-    """Make filenames reasonably cross-platform safe."""
     bad = '<>:"/\\|?*'
     s = "" if s is None else str(s)
     for ch in bad:
@@ -52,12 +48,6 @@ def to_float(x):
 
 
 def parse_gaia_source_id(raw):
-    """
-    Robust Gaia ID parsing:
-    - handles int-like strings
-    - handles scientific notation like 4.99424E+18 WITHOUT float rounding
-    Returns int or None.
-    """
     if raw is None:
         return None
 
@@ -81,10 +71,6 @@ def parse_gaia_source_id(raw):
 
 
 def gaia_distance_pc_from_source_id(source_id_int: int):
-    """
-    Fetch parallax for a source_id and estimate distance in pc (1000/parallax_mas).
-    Returns float distance (pc) or None.
-    """
     if source_id_int is None:
         return None
     query = f"""
@@ -106,17 +92,10 @@ def gaia_distance_pc_from_source_id(source_id_int: int):
 
 
 def expected_outdir_from_targname(targname: str) -> Path:
-    """
-    Matches Comove default outdir naming when output_directory=None:
-      './' + targname.replace(" ", "") + '_friends/'
-    """
     return Path("./" + str(targname).replace(" ", "") + "_friends/")
 
 
 def collect_csv(run_dir: Path, dest_base: Path, host_label: str):
-    """
-    Comove writes ONE csv per target. Copy it to ALL_CSVS/ as <host_label>.csv (no subfolders).
-    """
     run_dir = run_dir.resolve()
     dest_base.mkdir(parents=True, exist_ok=True)
 
@@ -132,10 +111,6 @@ def collect_csv(run_dir: Path, dest_base: Path, host_label: str):
 
 
 def move_run_dir(run_dir: Path, all_runs_dir: Path, host_label: str) -> Path:
-    """
-    Move run_dir into ALL_RUNS/ and rename to <hostname>_friends.
-    If destination exists, replace it.
-    """
     run_dir = run_dir.resolve()
     all_runs_dir.mkdir(parents=True, exist_ok=True)
 
@@ -147,19 +122,7 @@ def move_run_dir(run_dir: Path, all_runs_dir: Path, host_label: str) -> Path:
     return dest
 
 
-# -------------------------
-# SIMBAD fallback (mode 1)
-# -------------------------
 def simbad_lookup_gaia_dr3_and_rv(hostname: str):
-    """
-    Robust SIMBAD fallback:
-      - gets RA/Dec (deg)
-      - tries to get RV (km/s) from rvz_radvel if present
-      - tries to find Gaia DR3 source_id from object IDs
-
-    Returns dict with:
-      hostname, gaia_id_int, rv, ra_deg, dec_deg, note
-    """
     out = {
         "hostname": hostname,
         "gaia_id_int": None,
@@ -178,7 +141,6 @@ def simbad_lookup_gaia_dr3_and_rv(hostname: str):
         return out
 
     def _get_col(table, candidates):
-        """Return the first matching column name from candidates that exists in table.colnames."""
         if table is None:
             return None
         cols = set(table.colnames)
@@ -187,13 +149,11 @@ def simbad_lookup_gaia_dr3_and_rv(hostname: str):
                 return c
         return None
 
-    # --- query_object: RA/DEC + RV ---
     try:
         Simbad.reset_votable_fields()
         custom = Simbad()
-        # Don't add fragile fields (rvz_err/bibcode) here; they can break on some installs.
         try:
-            custom.add_votable_fields("rvz_radvel")  # RVZ_RADVEL in many installs
+            custom.add_votable_fields("rvz_radvel")
         except Exception:
             pass
 
@@ -208,14 +168,12 @@ def simbad_lookup_gaia_dr3_and_rv(hostname: str):
             if ra_col and dec_col:
                 ra_str = t[ra_col][0]
                 dec_str = t[dec_col][0]
-                # SIMBAD RA/DEC are usually hourangle/deg strings
                 c = SkyCoord(ra=ra_str, dec=dec_str, unit=(u.hourangle, u.deg), frame="icrs")
                 out["ra_deg"] = float(c.ra.deg)
                 out["dec_deg"] = float(c.dec.deg)
             else:
                 out["note"] = (out["note"] + " | " if out["note"] else "") + f"SimbadQueryWarn: RA/DEC cols missing, got {t.colnames}"
 
-            # RV: try RVZ_RADVEL (often appears uppercase)
             rv_col = _get_col(t, ["RVZ_RADVEL", "rvz_radvel"])
             if rv_col:
                 try:
@@ -228,18 +186,14 @@ def simbad_lookup_gaia_dr3_and_rv(hostname: str):
     except Exception as e:
         out["note"] = f"SimbadQueryFail: {repr(e)}"
 
-    # --- query_objectids: Gaia DR3 source_id ---
     try:
         ids = Simbad.query_objectids(hostname)
         if ids is None or len(ids) == 0:
             out["note"] = (out["note"] + " | " if out["note"] else "") + "SimbadIDsFail: no IDs returned"
         else:
-            # Column might be 'ID' or 'id' or something else; try common cases first.
             id_col = _get_col(ids, ["ID", "id"])
-            if id_col is None:
-                # fall back: if there's exactly one column, use it
-                if len(ids.colnames) == 1:
-                    id_col = ids.colnames[0]
+            if id_col is None and len(ids.colnames) == 1:
+                id_col = ids.colnames[0]
 
             if id_col is None:
                 out["note"] = (out["note"] + " | " if out["note"] else "") + f"SimbadIDsFail: couldn't find ID column, got {ids.colnames}"
@@ -272,17 +226,25 @@ def simbad_lookup_gaia_dr3_and_rv(hostname: str):
 
     return out
 
-# -------------------------
-# Multiprocessing worker
-# -------------------------
+
+def import_comove_module():
+    import importlib
+
+    candidates = ["comove", "Comove"]
+    errors = []
+
+    for name in candidates:
+        try:
+            return importlib.import_module(name)
+        except Exception as e:
+            errors.append(f"{name}: {repr(e)}")
+
+    raise ImportError("Could not import comove module. Tried: " + " | ".join(errors))
+
+
 def _attempt_findfriends(result_queue, targname, radvel, vlim, srad_eff, rd, verbose, showplots):
-    """
-    Run Comove.findfriends in a child process so the parent can enforce a hard timeout.
-    ALWAYS returns something on the queue:
-      ('ok', outdir) or ('err', repr(exception))
-    """
     try:
-        import Comove  # import inside child so spawn/import failures are catchable
+        Comove = import_comove_module()
     except Exception as e:
         try:
             result_queue.put(("err", f"ImportError/ComoveImportFail: {repr(e)}"))
@@ -297,11 +259,22 @@ def _attempt_findfriends(result_queue, targname, radvel, vlim, srad_eff, rd, ver
             velocity_limit=float(vlim),
             search_radius=float(srad_eff),
             radec=rd,
-            output_directory=None,  # let Comove handle default folder naming
+            output_directory=None,
             verbose=verbose,
             showplots=showplots,
         )
-        result_queue.put(("ok", outdir))
+
+        if outdir is None:
+            result_queue.put(("err", "RuntimeError('findfriends returned None; likely exited early before producing output')"))
+            return
+
+        outdir_str = str(outdir)
+        if not os.path.exists(outdir_str):
+            result_queue.put(("err", f"RuntimeError('findfriends returned {outdir_str!r}, but that path does not exist')"))
+            return
+
+        result_queue.put(("ok", outdir_str))
+
     except Exception as e:
         try:
             result_queue.put(("err", repr(e)))
@@ -309,72 +282,31 @@ def _attempt_findfriends(result_queue, targname, radvel, vlim, srad_eff, rd, ver
             pass
 
 
-# -------------------------
-# Main runner
-# -------------------------
 def run(
     *,
-    # Mode control
-    mode: int = 0,                         # 0=range mode, 1=list mode
-    hostnames: list[str] | None = None,    # required for mode=1
-
-    # Target list file + selection (mode=0 needs start/end)
+    mode: int = 0,
+    hostnames: list[str] | None = None,
     csv_path: str = r"Targets.csv",
     start_index: int | None = 0,
     end_index: int | None = 10,
-
-    # FriendFinder params
     vlim: float = 5.0,
     srad: float = 40.0,
     showplots: bool = False,
     verbose: bool = False,
-
-    # Timeouts / retries
     attempt_timeout_s: int = 300,
     max_attempts: int = 1,
     base_backoff_s: int = 10,
-
-    # Caps
     enable_distance_cap: bool = False,
     enable_angle_cap: bool = False,
     theta_max_deg: float = 10.0,
-
-    # Output organization
     all_runs_dir: Path | str = Path("ALL_RUNS"),
     all_csvs_dir: Path | str = Path("ALL_CSVS"),
-
-    # Logging
     log_path: Path | str = Path("run_log.csv"),
-
-    # Throttling
     sleep_between_targets_s: float = 0.5,
-
-    # De-dupe / resume behavior
     dedupe_by_gaia_id: bool = True,
-    force_rerun: bool = False,   # if True, ignore "completed" log and re-run anyway
-
-    # Matching behavior
+    force_rerun: bool = False,
     hostname_case_insensitive: bool = True,
 ):
-    """
-    Run FriendFinder across targets.
-
-    mode=0 (range):
-      requires start_index and end_index
-
-    mode=1 (list):
-      requires hostnames list
-      - if hostname exists in Targets.csv, uses that row
-      - else tries SIMBAD for Gaia DR3 ID + RV (+ RA/Dec)
-
-    Notes:
-      - Folder naming + file naming is controlled by the *targname* passed to Comove.
-        We pass targname = safe_name(hostname), so output folder is '<hostname>_friends'
-        and files are '<hostname>*.csv/.txt/.png', etc.
-      - After success, we:
-          1) copy the single CSV to ALL_CSVS/<hostname>.csv
-          2) move the whole output folder into ALL_RUNS/<hostname>_friends
-    """
     if mode not in (0, 1):
         raise ValueError("mode must be 0 (range) or 1 (list)")
 
@@ -382,7 +314,6 @@ def run(
     all_csvs_dir = Path(all_csvs_dir)
     log_path = Path(log_path)
 
-    # Load targets with pandas (CRITICAL: prevent Gaia ID rounding)
     df = pd.read_csv(
         csv_path,
         dtype={
@@ -404,7 +335,6 @@ def run(
     all_runs_dir.mkdir(parents=True, exist_ok=True)
     all_csvs_dir.mkdir(parents=True, exist_ok=True)
 
-    # Init log file
     if not log_path.exists():
         log_path.write_text(
             "index,hostname,gaia_id,rv,query_timestamp,attempt_completed_on,srad_used_pc,ok,runtime_s,output_dir,error\n",
@@ -412,7 +342,6 @@ def run(
         )
     print("Logging to:", log_path.resolve())
 
-    # Resume mode: skip gaia_ids already completed (ok==1)
     completed = set()
     if not force_rerun:
         try:
@@ -422,7 +351,6 @@ def run(
         except Exception:
             completed = set()
 
-    # Create an iterator of "targets to run"
     targets = []
 
     if mode == 0:
@@ -432,13 +360,10 @@ def run(
         end = min(int(end_index), len(df))
         for idx in range(int(start_index), end):
             targets.append(("df_row", idx, df.iloc[idx]))
-
-    else:  # mode == 1
+    else:
         if not hostnames or not isinstance(hostnames, (list, tuple)):
             raise ValueError("mode=1 requires hostnames=[...] (list of strings)")
 
-        # Build a lookup map for hostnames -> rows (optionally case-insensitive)
-        # Note: if duplicates exist (multiple planets per host), we keep the first occurrence.
         name_to_row = {}
         for i in range(len(df)):
             name = str(df.iloc[i]["hostname"])
@@ -453,20 +378,15 @@ def run(
                 idx, row = name_to_row[key]
                 targets.append(("df_row", idx, row))
             else:
-                # SIMBAD fallback
                 sim = simbad_lookup_gaia_dr3_and_rv(raw)
                 targets.append(("simbad", -1, sim))
 
     seen_gaia = set()
 
-    # -------------------------
-    # Run targets
-    # -------------------------
     for kind, idx, payload in targets:
         query_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         attempt_completed_on = 0
 
-        # --- Resolve per-target inputs ---
         if kind == "df_row":
             row = payload
             host_label = safe_name(row["hostname"])
@@ -486,16 +406,13 @@ def run(
             radvel = to_float(row["st_rv"])
 
             print(f"\n[{idx}] {host_label} | Gaia DR3 {gaia_id} | RV={row['st_rv']}")
-
             if radvel is None:
                 msg = "Missing/invalid RV"
                 print(f"  SKIP: {msg}")
                 with log_path.open("a", encoding="utf-8") as f:
                     f.write(f'{idx},{host_label},{gaia_id},{row["st_rv"]},"{query_timestamp}",0,,0,0,,"{msg}"\n')
                 continue
-
         else:
-            # SIMBAD target
             sim = payload
             host_label = safe_name(sim["hostname"])
             gaia_id_int = sim["gaia_id_int"]
@@ -506,6 +423,8 @@ def run(
             radvel = sim["rv"]
 
             print(f"\n[SIMBAD] {host_label} | Gaia DR3 {gaia_id if gaia_id else '(unknown)'} | RV={radvel if radvel is not None else '(missing)'}")
+            print(f"  SIMBAD note: {sim.get('note', '')}")
+
             if gaia_id_int is None:
                 msg = f"SIMBAD lookup failed: {sim.get('note','')}"
                 print(f"  SKIP: {msg}")
@@ -519,25 +438,21 @@ def run(
                     f.write(f'-1,{host_label},{gaia_id},{radvel},"{query_timestamp}",0,,0,0,,"{msg}"\n')
                 continue
 
-        # Use hostname as targname so Comove writes <hostname>_friends and files named <hostname>*.png/.txt/.csv
         targname = host_label
 
-        # Resume skip (only if not force_rerun)
         if (not force_rerun) and gaia_id and (gaia_id in completed):
-            print(f"  SKIP: already completed (resume)")
+            print("  SKIP: already completed (resume)")
             continue
 
-        # De-dupe within this execution
         if dedupe_by_gaia_id:
             if gaia_id_int in seen_gaia:
-                print(f"  SKIP: duplicate Gaia source_id in this run")
+                print("  SKIP: duplicate Gaia source_id in this run")
                 continue
             seen_gaia.add(gaia_id_int)
 
         if ra is None or dec is None:
             print("  WARNING: RA/Dec missing; Comove may fall back to SIMBAD")
 
-        # Compute effective srad (caps)
         srad_eff = float(srad)
         d_pc = gaia_distance_pc_from_source_id(gaia_id_int)
 
@@ -551,7 +466,6 @@ def run(
                 print(f"  NOTE: cone would be huge; cap-by-angle {theta_max_deg}°: {srad_eff:.2f} -> {srad_max_by_angle:.2f} pc")
                 srad_eff = srad_max_by_angle
 
-        # --- Run FriendFinder with hard timeout per attempt ---
         ok = 0
         outdir = ""
         err = ""
@@ -560,7 +474,6 @@ def run(
         for attempt in range(1, int(max_attempts) + 1):
             attempt_completed_on = attempt
 
-            # Remove partial local outdir from previous attempt
             local_outdir = expected_outdir_from_targname(targname)
             if local_outdir.exists():
                 shutil.rmtree(local_outdir)
@@ -602,16 +515,20 @@ def run(
                 status, payload2 = ("err", "RuntimeError('Child exited before reporting (likely import-time crash)')")
 
             if status == "ok":
-                outdir = payload2
-                err = ""
-                ok = 1
-                print(f"  Runtime: {runtime:.2f} s (attempt {attempt})")
-                break
-
-            # status == "err"
-            err = payload2
-            print(f"  ERROR: {err}")
-            print(f"  Runtime: {runtime:.2f} s")
+                outdir = str(payload2)
+                if not outdir or not os.path.exists(outdir):
+                    err = f"RuntimeError('Worker reported success but output directory is invalid: {outdir!r}')"
+                    ok = 0
+                    print(f"  ERROR: {err}")
+                else:
+                    err = ""
+                    ok = 1
+                    print(f"  Runtime: {runtime:.2f} s (attempt {attempt})")
+                    break
+            else:
+                err = payload2
+                print(f"  ERROR: {err}")
+                print(f"  Runtime: {runtime:.2f} s")
 
             if attempt < int(max_attempts):
                 wait = int(base_backoff_s) * (2 ** (attempt - 1))
@@ -622,19 +539,13 @@ def run(
             ok = 0
             break
 
-        # --- Organize outputs ---
         if ok and outdir and os.path.exists(outdir):
             run_dir = Path(outdir)
-
-            # Copy <hostname>.csv into ALL_CSVS (no subfolders)
             collect_csv(run_dir, all_csvs_dir, host_label)
-
-            # Move the whole run folder into ALL_RUNS as <hostname>_friends
             moved_to = move_run_dir(run_dir, all_runs_dir, host_label)
             print(f"  Saved run folder -> {moved_to}")
             outdir = str(moved_to)
 
-        # --- Log result ---
         log_index = idx if kind == "df_row" else -1
         with log_path.open("a", encoding="utf-8") as f:
             f.write(
@@ -644,33 +555,5 @@ def run(
         time.sleep(float(sleep_between_targets_s))
 
 
-# -------------------------
-# Example usage (optional)
-# -------------------------
-#if __name__ == "__main__":
-    # Comment this entire block out if you only want to import from notebooks.
-    # Range mode example:
-    # run_stars(
-    #     mode=0,
-    #     csv_path="Targets.csv",
-    #     start_index=0,
-    #     end_index=5,
-    #     vlim=5.0,
-    #     srad=40.0,
-    #     attempt_timeout_s=300,
-    #     max_attempts=1,
-    #     enable_distance_cap=False,
-    #     enable_angle_cap=False,
-    # )
-
-    # List mode example:
-    # run_stars(
-    #     mode=1,
-    #     csv_path="Targets.csv",
-    #     hostnames=["WASP-20", "Gliese 12", "Some Target Not In List"],
-    #     vlim=3.0,
-    #     srad=30.0,
-    #     attempt_timeout_s=180,
-    #     max_attempts=1,
-    #     force_rerun=True,
-    # )
+def run_stars(**kwargs):
+    return run(**kwargs)

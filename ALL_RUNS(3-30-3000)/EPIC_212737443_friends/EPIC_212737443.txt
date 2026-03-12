@@ -1,0 +1,2 @@
+GaiaDR3                               RA         DEC   Gmag  Bp-Rp  Voff(km/s) Sep(deg)   3D(pc) Vr(pred)  Vr(obs)    Vrerr Plx(mas)  SpT    FnuvJ  W1-W3    RUWE  XCrate                               RVsrc    PMRApred   PMDecpred        PMRA     PMRAerr       PMDec    PMDecerr
+Gaia DR3 3630680754621236096 204.2215001  -7.3180547 14.463  1.329       0.000   0.0000   0.0000   -22.01   -22.01     3.82    2.938  nan      nan    nan   1.004     nan                            Gaia_DR3     -46.156      22.125     -46.156       0.028      22.125       0.019
