@@ -497,13 +497,22 @@ def run(
                 runtime = time.perf_counter() - t0
                 err = f"TimeoutError('Attempt timed out after {attempt_timeout_s}s')"
                 print(f"  TIMEOUT after {runtime:.2f}s")
-
+            
+                # clean up partial local output folder after timeout
+                local_outdir = expected_outdir_from_targname(targname)
+                if local_outdir.exists():
+                    try:
+                        shutil.rmtree(local_outdir)
+                        print(f"  Deleted partial timeout folder: {local_outdir}")
+                    except Exception as e:
+                        print(f"  WARNING: Could not delete timeout folder {local_outdir}: {e}")
+            
                 if attempt < int(max_attempts):
                     wait = int(base_backoff_s) * (2 ** (attempt - 1))
                     print(f"  Retrying after {wait}s...")
                     time.sleep(wait)
                     continue
-
+            
                 ok = 0
                 break
 
