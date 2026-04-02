@@ -1,0 +1,2 @@
+index,hostname,gaia_id,rv,query_timestamp,attempt_completed_on,srad_input_pc,srad_used_pc,ok,runtime_s,csv_path,distance_pc,search_radius_deg,min_parallax_mas,parallax_error_cut_mas,n_query_rows,n_base,n_not_self,n_convergcut,n_cmd_clean,n_good_rv,n_rv_comoving,n_rv_outlier,n_final,error
+0,HIP_65_A,4923860051276772608,21.18428993,"2026-04-02 00:29:41",1,20.000000,20.000000,1,18.34,"C:\Users\Eef\MY SHIT\Documents\ASTR502spring26\ASTR502spring26\April Fixes\FRIENDS\HIP_65_A.csv",61.86532172966987,18.861576810687,12.215184389088854,1.6164144500365734,4694,5,4,4,3,2,1,1,4,""
