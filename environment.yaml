@@ -62,11 +62,11 @@ dependencies:
   - bzip2=1.0.8=h0ad9c76_8
   - c-ares=1.34.6=hfd05255_0
   - c-blosc2=2.22.0=h2af8807_1
-  - ca-certificates=2026.1.4=h4c7d964_0
+  - ca-certificates=2026.3.19=haa95532_0
   - cached-property=1.5.2=hd8ed1ab_1
   - cached_property=1.5.2=pyha770c72_1
   - cairo=1.18.4=h477c42c_1
-  - certifi=2026.1.4=pyhd8ed1ab_0
+  - certifi=2026.01.04=py311haa95532_0
   - cffi=2.0.0=py311h3485c13_1
   - charls=2.4.2=h1537add_0
   - charset-normalizer=3.4.4=pyhd8ed1ab_0
@@ -259,7 +259,7 @@ dependencies:
   - oktopus=0.1.2=pyhecae5ae_1
   - openjpeg=2.5.4=h24db6dd_0
   - openjph=0.26.0=hf13a347_0
-  - openssl=3.6.0=h725018a_0
+  - openssl=3.5.5=hbb43b14_0
   - orc=2.2.1=h7414dfc_0
   - overrides=7.7.0=pyhd8ed1ab_1
   - packaging=25.0=pyh29332c3_1
@@ -274,6 +274,7 @@ dependencies:
   - pip=25.3=pyh8b19718_0
   - pixman=0.46.4=h5112557_1
   - platformdirs=4.5.1=pyhcf101f3_0
+  - plotly=6.6.0=py311h4442805_0
   - powershell_shortcut=0.0.1=haa95532_4
   - proj=9.7.1=h7b1ce8f_0
   - prometheus_client=0.24.0=pyhd8ed1ab_0

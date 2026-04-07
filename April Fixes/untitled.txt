@@ -1,4 +1,0 @@
-target,notes
-HD_1397,
-HD_17156,
-K2-151,
